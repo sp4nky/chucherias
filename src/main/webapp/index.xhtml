@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Chucherias</title>
+        <h:outputStylesheet name="files/combined.css" />
+        <h:outputStylesheet name="files/styles.css" />
+        <h:outputStylesheet name="files/styles2.css" />
+        <h:outputScript name="files/js" />
+        <h:outputScript name="files/ZTplugins.js.descarga" />
+        <script type="text/javascript">
+            var theForm = document.forms['master'];
+            if (!theForm) {
+                theForm = document.master;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'master', ['tctl00$BasketOnTopUserControl$ModalUpdatePanel', 'ModalUpdatePanel', 'tctl00$MainContent$ProductListUserControl$upnlProductListAux', 'MainContent_ProductListUserControl_upnlProductListAux', 'tctl00$MainContent$VerticalBannerUserControl$upnlProductList', 'MainContent_VerticalBannerUserControl_upnlProductList', 'tctl00$MainContent$ProductListUserControl3$upnlProductListAux', 'MainContent_ProductListUserControl3_upnlProductListAux', 'tctl00$updSub', 'updSub'], [], [], 90, 'ctl00');
+        </script>
+        <script>
+                        $(document).ready(function ($) {
+
+                            $('.CatalogContent').each(function (index) {
+                                if (index == 0) {
+                                    $(this).show();
+                                }
+                                $(this).attr("id", "CatalogContent" + index);
+                            });
+                            $('.mgmenu_tabs_nav li a').each(function (index) {
+                                if (index == 0) {
+                                    $(this).addClass('current');
+                                }
+                                $(this).attr("href", "#CatalogContent" + index);
+                            });
+                            $('.ZTmenu_vertical li').hoverIntent({
+                                sensitivity: 3, // number = sensitivity threshold (must be 1 or higher)
+                                interval: 200, // number = milliseconds for onMouseOver polling interval
+                                timeout: 600, // number = milliseconds delay before onMouseOut
+                                over: function () {
+                                    $(this).find('.dropdown_fullwidth').fadeIn('fast');
+                                },
+                                out: function () {
+                                    $(this).find(".dropdown_fullwidth").fadeOut('fast');
+                                }
+                            })
+                            setTimeout('CategoryMenuVertical();', 1000);
+                        });
+                                            
+        </script>
+        <script type="text/javascript">
+                        $(".imgPhoto").click(function () {
+                            if ($(this).attr("data-href") != null) {
+                                document.location.href = $(this).attr("data-href");
+                            }
+                        });
+                        $(window).load(function () {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                start: function (slider)
+                                {
+                                    slider.removeClass('loading');
+                                }
+
+                            });
+                        });
+                                            
+        </script>
+        
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="text-primary UpdateAt">
+                </div>
+            </div>
+        </div>
+        <div class="container panel-heading IsHome">
+            <div>
+                <input name="ctl00$MainContent$PopUpUserControl$hfData" type="hidden" id="MainContent_PopUpUserControl_hfData" class="hfData" value="notEmpty"></input>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-3 col-md-3 hidden-xs">
+                    <a class="brand hidden-xs" href="" title="Chucherias">
+                        <p:graphicImage name="img/LogoCHUCHERIAS.png" />
+                        </a>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div id="MainContent_SearchUserControl_pnlSearch" onkeypress="">
+                                <div class="form-inline" role="search" id="formSearchTop">
+                                    <div class="input-group">
+                                        <input name="ctl00$MainContent$SearchUserControl$TxtBoxText" type="text" id="MainContent_SearchUserControl_TxtBoxText" class="form-control" placeholder="Buscar aquí" onkeyup=""></input>
+                                        <input name="ctl00$MainContent$SearchUserControl$productSelected" type="hidden" id="MainContent_SearchUserControl_productSelected" value="0"></input>
+                                        <input name="ctl00$MainContent$SearchUserControl$categorySelected" type="hidden" id="MainContent_SearchUserControl_categorySelected" value="0"></input>
+                                        <input name="ctl00$MainContent$SearchUserControl$hfCategoryValue" type="hidden" id="MainContent_SearchUserControl_hfCategoryValue" class="hfCategoryValue"></input>
+                                        <div class="input-group-btn">
+                                            <button type="button" title="Todas las categorías" class="ZT-btnSearchCategories btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                                <span id="DisplayCategories">Todas las categorías </span> <span class="caret"></span>
+                                            </button>
+                                            <ul id="MainContent_SearchUserControl_SearchCategories" class="dropdown-menu" role="menu">
+                                                <li role="presentation" class="dropdown-header">Catálogo</li>
+                                                <li><a id="MainContent_SearchUserControl_0" onclick="selectCategory(this.text, 0);"><i class="zt-icon-zonatecno-1" style="font-family: zt;"></i><span>Todas las categorías</span></a></li><li><a id="MainContent_SearchUserControl_10" class="lnkCelulares" onclick="selectCategory(this.text, 10);"><i class="zt-icon-cel" style="font-family: zt;"></i><span>Pendrives</span></a></li><li><a id="MainContent_SearchUserControl_9" class="lnkNotebooks" onclick="selectCategory(this.text, 9);"><i class="zt-icon-not" style="font-family: zt;"></i><span>Aromatizantes</span></a></li><li><a id="MainContent_SearchUserControl_11" class="lnkTablets eReaders" onclick="selectCategory(this.text, 11);"><i class="zt-icon-tab" style="font-family: zt;"></i><span>Adornos para el hogar</span></a></li><li class="divider"></li><li><a id="MainContent_SearchUserControl_7" class="lnkCámaras" onclick="selectCategory(this.text, 7);"><i class="zt-icon-cam" style="font-family: zt;"></i><span>Llaveros</span></a></li>
+                                                <li><a id="MainContent_SearchUserControl_12" class="lnkVideojuegos" onclick="selectCategory(this.text, 12);"><i class="zt-icon-vid" style="font-family: zt;"></i><span>Oficina</span></a></li><li><a id="MainContent_SearchUserControl_4" class="lnkInformática" onclick="selectCategory(this.text, 4);"><i class="zt-icon-inf" style="font-family: zt;"></i><span>Informática</span></a></li>
+                                            </ul>
+                                        </div>
+                                        <span id="MainContent_SearchUserControl_Span1" class="input-group-btn">
+                                            <a id="MainContent_SearchUserControl_BtnSearch" class="btn btn-primary zt-iconsearch-1 SearchUserControl_BtnSearch" href="javascript:__doPostBack(&#39;ctl00$MainContent$SearchUserControl$BtnSearch&#39;,&#39;&#39;)"></a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 visible-sm visible-md visible-lg" role="complementary">
+                        <div class="MenuLista"></div>
+                        <div class="page_wrapper_vertical">
+                            <div class="ZTmenu_container_vertical ZTmenu_dark_bar ZTmenu_light">
+                                <ul id="MainContent_VerticalMenuUserControl_menuCategories" class="ZTmenu ZTmenu_vertical">
+                                    <li class="color0">
+                                        <a id="10" href="" class="ZTmenu_drop">
+                                            <div class="borderColor bgcolor0"></div>
+                                            <i class="zt-icon-cel" style="font-family: zt;"></i><span>Pendrives</span></a>
+                                        <div class="dropvertical_container container" style="margin-top: -0px">
+                                            <div id="MainContent_VerticalMenuUserControl_ctl00_menuId" class="dropdown_fullwidth dropdown_first">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 titleZTMenu bgcolor0">
+                                                    <h1 style="color: white;"><i class="zt-icon-cel" style="font-family: zt;"></i><span>Pendrives</span></h1>
+                                                </div>
+                                                <div class="listMenuRepeater row"><div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 itemlistMenuRepeater">
+                                                        <h4 id="MainContent_VerticalMenuUserControl_ctl00_listRepeater_CategoryToAdd_0">
+                                                            <a href="">Modelos</a></h4>
+                                                        <ul class="list_unstyled">
+
+                                                            <li id="MainContent_VerticalMenuUserControl_ctl00_listRepeater_listMenuRepeater_0_itemToAdd_0">
+                                                                <a href="">Personajes</a></li>
+
+                                                            <li id="MainContent_VerticalMenuUserControl_ctl00_listRepeater_listMenuRepeater_0_itemToAdd_1">
+                                                                <a href="">Instrumentos</a></li>
+
+                                                            <li id="MainContent_VerticalMenuUserControl_ctl00_listRepeater_listMenuRepeater_0_itemToAdd_2">
+                                                                <a href="">Animales</a></li>
+
+                                                            <li id="MainContent_VerticalMenuUserControl_ctl00_listRepeater_listMenuRepeater_0_itemToAdd_3">
+                                                                <a href="">Otros</a></li>                        
+                                                        </ul>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <!--fondo menu desplegado-->
+                                                    <div id="MainContent_VerticalMenuUserControl_ctl06_imgBanner" class="BannerMenu" style="background:url() scroll no-repeat right bottom transparent;">
+                                                        <a href="" id="MainContent_VerticalMenuUserControl_ctl06_urlBanner" class="urlBanner"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="color1">
+                                        <a id="9" href="" class="ZTmenu_drop">
+                                            <div class="borderColor bgcolor1"></div>
+                                            <i class="zt-icon-not" style="font-family: zt;"></i><span>Aromatizantes</span></a>
+                                        <div class="dropvertical_container container" style="margin-top: -25px">
+                                            <div id="MainContent_VerticalMenuUserControl_ctl01_menuId" class="dropdown_fullwidth dropdown_first">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 titleZTMenu bgcolor1">
+                                                    <h1 style="color: white;"><i class="zt-icon-not" style="font-family: zt;"></i><span>Aromatizantes</span></h1>
+                                                </div>
+                                                <div class="listMenuRepeater row"><div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 itemlistMenuRepeater">
+                                                        <h4 id="MainContent_VerticalMenuUserControl_ctl01_listRepeater_CategoryToAdd_0">
+                                                            <a href="">Formas</a></h4>
+                                                        <ul class="list_unstyled">
+                                                            <li id="MainContent_VerticalMenuUserControl_ctl01_listRepeater_listMenuRepeater_0_itemToAdd_0">
+                                                                <a href="">Los Vengadores</a></li>
+                                                            <li id="MainContent_VerticalMenuUserControl_ctl01_listRepeater_listMenuRepeater_0_itemToAdd_1">
+                                                                <a href="">Plantas</a></li>
+                                                            <li id="MainContent_VerticalMenuUserControl_ctl01_listRepeater_listMenuRepeater_0_itemToAdd_2">
+                                                                <a href="">Otros</a></li> 
+                                                        </ul>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <!--fondo menu desplegado-->
+                                                    <div id="MainContent_VerticalMenuUserControl_ctl06_imgBanner" class="BannerMenu" style="background:url() scroll no-repeat right bottom transparent;">
+                                                        <a href="" id="MainContent_VerticalMenuUserControl_ctl06_urlBanner" class="urlBanner"></a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="color2">
+                                        <a id="11" href="" class="ZTmenu_drop">
+                                            <div class="borderColor bgcolor2"></div>
+                                            <i class="zt-icon-tab" style="font-family: zt;"></i><span>Adornos para el hogar</span></a>
+                                        <div class="dropvertical_container container" style="margin-top: -50px">
+                                            <div id="MainContent_VerticalMenuUserControl_ctl02_menuId" >
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 titleZTMenu bgcolor2">
+                                                    <h1 style="color: white;"><i class="zt-icon-tab" style="font-family: zt;"></i><span>Adornos para el hogar</span></h1>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="color3">
+                                        <a id="11" href="" class="ZTmenu_drop">
+                                            <div class="borderColor bgcolor3"></div>
+                                            <i class="zt-icon-tab" style="font-family: zt;"></i><span>Llaveros</span></a>
+                                        <div class="dropvertical_container container" style="margin-top: -50px">
+                                            <div id="MainContent_VerticalMenuUserControl_ctl02_menuId" >
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 titleZTMenu bgcolor2">
+                                                    <h1 style="color: white;"><i class="zt-icon-tab" style="font-family: zt;"></i><span>Llaveros</span></h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="color4">
+                                        <a id="11" href="" class="ZTmenu_drop">
+                                            <div class="borderColor bgcolor4"></div>
+                                            <i class="zt-icon-tab" style="font-family: zt;"></i><span>Oficina</span></a>
+                                        <div class="dropvertical_container container" style="margin-top: -50px">
+                                            <div id="MainContent_VerticalMenuUserControl_ctl02_menuId" >
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 titleZTMenu bgcolor2">
+                                                    <h1 style="color: white;"><i class="zt-icon-tab" style="font-family: zt;"></i><span>Oficina</span></h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-9" role="complementary">
+
+
+                    <div class="flexslider">
+
+                        <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1600%; transition-duration: 0.6s; transform: translate3d(-1436px, 0px, 0px);">
+                                <li class="clone" aria-hidden="true" style="width: 718px; float: left; display: block;">
+                                    <img src="resources/files/banner_scotia_.png" data-href="" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>
+                                </li>
+
+                                <li style="width: 718px; float: left; display: block;" >
+                                    <img src="resources/files/samsung_s9.png" data-href="" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>      
+                                </li>
+
+                                <li style="width: 718px; float: left; display: block;" class="flex-active-slide">
+                                    <img src="resources/files/nuevobannerweb.png" data-href="#" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>
+                                </li>
+
+                                <li style="width: 718px; float: left; display: block;" class="">
+                                    <img src="resources/files/cabal.png" data-href="" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>
+                                </li>
+
+                                <li style="width: 718px; float: left; display: block;" class="">
+                                    <img src="resources/files/banner_oca.png" data-href="" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>
+                                </li>
+
+                                <li style="width: 718px; float: left; display: block;" class="">
+                                    <img src="resources/files/aldeasinfantiles.png" data-href="" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>
+                                </li>
+
+                                <li style="width: 718px; float: left; display: block;" class="">
+                                    <img src="resources/files/banner_scotia_.png" data-href="" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>
+                                </li>
+
+                                <li style="width: 718px; float: left; display: block;" class="clone" aria-hidden="true">
+                                    <img src="resources/files/samsung_s9.png" data-href="https://goo.gl/GXfjM7" id="imgPhoto" class="img-responsive imgPhoto" draggable="false"></img>
+                                </li></ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="flex-active">2</a></li><li><a class="">3</a></li><li><a class="">4</a></li><li><a class="">5</a></li><li><a class="">6</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="">Previous</a></li><li><a class="flex-next" href="">Next</a></li></ul></div>
+                    
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 " role="complementary" id="ProductListUserControlDefault">
+                <div class="ProductListWrapper">
+                    <div id="MainContent_ProductListUserControl_upnlProductListAux">
+                        <script type="text/javascript">
+                            ReLoadScriptUpdatePanel(SetViewStyle);
+                        </script>
+                        <div class="ProductList">
+                            <div class="TitleList bgcolor-gray">
+                                <i class="zt-icon-productos" style="font-family: zt;"></i>
+                                <h2>
+                                    <span id="MainContent_ProductListUserControl_lblTitle">Ultimos ingresos...</span></h2>
+                            </div>
+                            <div id="MainContent_ProductListUserControl_listProducts" class="ProductListContent">
+                                <ul>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_182148_HDR.jpg);">
+                                            <h:graphicImage name="img/IMG_20180330_182148_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_0" class="img-responsive" style="display: none;"/>
+                                        </div>
+                                        <div class="ProductName">
+                                            Pendrive Goku pequeño 8gb
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_0" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_0">$ 549 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_0" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_182058_HDR.jpg);">
+                                            <img src="resources/img/IMG_20180330_182058_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_1" class="img-responsive" onerror="this.onerror=null;this.src=&#39;/Assets/Images/vacio_b.png&#39;;" style="display: none;"></img>
+                                        </div>
+                                        <div class="ProductName">
+                                            Pendrive Krilin pequeño 8gb
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_1" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_1">$ 549 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_1" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_180112_HDR.jpg);">
+                                            <img src="resources/img/IMG_20180330_180112_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_2" class="img-responsive" onerror="this.onerror=null;this.src=&#39;/Assets/Images/vacio_b.png&#39;;" style="display: none;">
+                                            </img>
+                                        </div>
+                                        <div class="ProductName">
+                                            Llavero Avion
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_2" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_2">$ 50 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_2" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_183614_HDR.jpg);">
+                                            <img src="resources/img/IMG_20180330_183614_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_3" class="img-responsive" onerror="this.onerror=null;this.src=&#39;/Assets/Images/vacio_b.png&#39;;" style="display: none;"></img>
+                                        </div>
+                                        <div class="ProductName">
+                                            Aromatizante Forma tuna
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_3" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_3">$ 90 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_3" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_182347_HDR.jpg);">
+                                            <img src="resources/img/IMG_20180330_182347_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_4" class="img-responsive" onerror="this.onerror=null;this.src=&#39;/Assets/Images/vacio_b.png&#39;;" style="display: none;">
+                                            </img>
+                                        </div>
+                                        <div class="ProductName">
+                                            Pendrive Darth Vaider 8gb
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_4" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_4">$ 549 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_4" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_182440_HDR.jpg);">
+                                            <img src="resources/img/IMG_20180330_182440_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_5" class="img-responsive" onerror="this.onerror=null;this.src=&#39;/Assets/Images/vacio_b.png&#39;;" style="display: none;"></img>
+                                        </div>
+                                        <div class="ProductName">
+                                            Pendrive Avion 8gb
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_5" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_5">$ 549 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_5" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_182623_HDR.jpg);">
+                                            <img src="resources/img/IMG_20180330_182623_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_6" class="img-responsive" onerror="this.onerror=null;this.src=&#39;/Assets/Images/vacio_b.png&#39;;" style="display: none;"></img>
+                                        </div>
+                                        <div class="ProductName">
+                                            Pendrive Tortuga 8gb
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_6" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_6">$ 400 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_6" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li style="height: 355px;">
+                                        <div class="ImageContainer" id="ProductImageDefaultPage" style="background-image: url(resources/img/IMG_20180330_183134_HDR.jpg);">
+                                            <img src="resources/img/IMG_20180330_183134_HDR.jpg" id="MainContent_ProductListUserControl_listRepeater_imgPhoto_7" class="img-responsive" onerror="this.onerror=null;this.src=&#39;/Assets/Images/vacio_b.png&#39;;" style="display: none;"></img>
+                                        </div>
+                                        <div class="ProductName">
+                                            Pendrive Guitarra 8gb
+                                        </div>
+                                        <div id="MainContent_ProductListUserControl_listRepeater_ContainerPricesDefaultPage_7" class="ContainerPricesDefaultPage">
+                                            <div class="ProductPrice">
+                                                <h3 id="MainContent_ProductListUserControl_listRepeater_lblPriceUSD_7">$ 400 <span> IVA Incl.</span></h3>
+                                            </div>
+                                        </div>
+                                        <a id="MainContent_ProductListUserControl_listRepeater_lnkDetails_7" class="ProductLink" href=""><span>Ver más</span> </a>
+                                    </li>
+                                    <li id="MainContent_ProductListUserControl_PgnList" class="Paginador" style="height: 293.453px;">
+                                        <div id="MainContent_ProductListUserControl_UpdateProgressClasificadosAux" style="display:none;" role="status" aria-hidden="true">
+
+                                            <div class="cargandoDatosPaginado">
+                                                <img id="MainContent_ProductListUserControl_imgSend" src="resources/files/ajax-loader.gif"></img>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row marginT20">
+                    <div style="position:relative">
+                        <div id="MainContent_VerticalBannerUserControl_upnlProductList">
+                            <div class="col-xs-4 col-sm-4 col-md-4" role="complementary">
+                                <a href="" id="MainContent_VerticalBannerUserControl_listRepeater_LinkToSub_0" class="Banner1Col">
+                                    <img src="resources/files/mochi.png" id="MainContent_VerticalBannerUserControl_listRepeater_bannerid_0" class="img-responsive"></img>
+                                </a>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4" role="complementary">
+                                <a href="" id="MainContent_VerticalBannerUserControl_listRepeater_LinkToSub_1" class="Banner1Col">
+                                    <img src="resources/files/estuches.png" id="MainContent_VerticalBannerUserControl_listRepeater_bannerid_1" class="img-responsive"></img>
+                                </a>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4" role="complementary">
+                                <a href="" id="MainContent_VerticalBannerUserControl_listRepeater_LinkToSub_2" class="Banner1Col">
+                                    <img src="resources/files/auricular.png" id="MainContent_VerticalBannerUserControl_listRepeater_bannerid_2" class="img-responsive"></img>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="footer" class="panel-footer navbar-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h3>Información Útil</h3>
+                        <ul class="links">
+                            <li><a href="">Preguntas frecuentes</a></li>
+                            <li><a href="">Garantía</a></li>
+                            <li><a href="">Quienes somos</a></li>
+                            <li><a href="">Comprar</a></li>
+                            <li><a href="">Envíos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-4">
+                        <div class="row">
+                            <div id="updSub">
+                                <div class="col-xs-12 col-sm-12 col-md-12 Footer-Suscribete" id="Suscribete">
+                                    <h3>Suscribete</h3>
+                                    <input name="ctl00$txtNewsletter" type="text" maxlength="50" id="txtNewsletter" class="form-control input-Email-suscription" placeholder="email" title="Escribe tu email para suscribirte al NewsLetter"></input>
+                                    <input type="submit" name="ctl00$btnNewsletter" value="ok" onclick=")" id="btnNewsletter" class="btn btn-Email-suscription"></input>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 susbscriptionMessages">
+                                        <span id="rfvNewsLetter" class="rfvNewsLetter" style="visibility:hidden;">Ingrese un mail</span>
+                                        <span id="regexEmailValid" class="rfvNewsLetter" style="visibility:hidden;">Formato incorrecto</span>
+                                    </div>
+                                    <div id="MessageNewsletter" class="MessageNewsletter bgcolor0 " style="display: none;">
+                                    </div>
+                                </div>
+                                <div id="UpdateProgressClasificados" style="display:none;" role="status" aria-hidden="true">
+
+                                    <div class="loadingSuscription">
+                                        <img id="imgSend" src="resources/files/ajax-loader.gif"></img>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 Footer-Seguinos" id="Seguinos">
+                                <h3>Seguinos!</h3>
+                                <ul class="Social2">
+                                    <li class="Social"><a href="https://www.facebook.com/chucheriasmtvo">
+                                            <img src="resources/files/Facebook.png"></img></a></li>
+                                </ul>
+                                <div class="fb-facepile" data-href="https://www.facebook.com/chucheriasmtvo" data-max-rows="1" data-colorscheme="dark" data-size="medium" data-show-count="true"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
+</html>
+
