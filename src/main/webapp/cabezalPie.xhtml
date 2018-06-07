@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="files/combined.css" />
+        <h:outputStylesheet name="files/styles.css" />
+        <h:outputStylesheet name="files/styles2.css" />
+        <h:outputStylesheet name="font-awesome/css/fontawesome-all.css"/>
+        <h:outputScript name="files/js" />
+        <h:outputScript name="files/ZTplugins.js.descarga" />
+        <h:outputScript name="files/animaciones.js" />
+        <h:outputStylesheet name="css/cssLayout.css" />
+        
+        <title>Chucherias</title>
+
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <div class="container panel-heading IsHome">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3 col-md-3 hidden-xs">
+                            <a class="brand hidden-xs" href="" title="Chucherias">
+                                <p:graphicImage name="img/LogoCHUCHERIAS.png" />
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-9 col-md-9">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div id="MainContent_SearchUserControl_pnlSearch" onkeypress="">
+                                        <div class="form-inline" role="search" id="formSearchTop">
+                                            <div class="input-group">
+                                                <input name="ctl00$MainContent$SearchUserControl$TxtBoxText" type="text" id="MainContent_SearchUserControl_TxtBoxText" class="form-control" placeholder="Buscar aquí" onkeyup=""></input>
+                                                <input name="ctl00$MainContent$SearchUserControl$productSelected" type="hidden" id="MainContent_SearchUserControl_productSelected" value="0"></input>
+                                                <input name="ctl00$MainContent$SearchUserControl$categorySelected" type="hidden" id="MainContent_SearchUserControl_categorySelected" value="0"></input>
+                                                <input name="ctl00$MainContent$SearchUserControl$hfCategoryValue" type="hidden" id="MainContent_SearchUserControl_hfCategoryValue" class="hfCategoryValue"></input>
+                                                <div class="input-group-btn">
+                                                    <button type="button" title="Todas las categorías" class="ZT-btnSearchCategories btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                                                        <span id="DisplayCategories">Todas las categorías </span> <span class="caret"></span>
+                                                    </button>
+                                                    <ul id="MainContent_SearchUserControl_SearchCategories" class="dropdown-menu" role="menu">
+                                                        <li role="presentation" class="dropdown-header">Catálogo</li>
+                                                        <li><a id="MainContent_SearchUserControl_0" onclick="selectCategory(this.text, 0);"><i class="zt-icon-zonatecno-1" style="font-family: zt;"></i><span>Todas las categorías</span></a></li>
+                                                        <li><a id="MainContent_SearchUserControl_10" class="lnkCelulares" onclick="selectCategory(this.text, 10);"><i class="fab fa-usb"></i><span>Pendrives</span></a></li>
+                                                        <li><a id="MainContent_SearchUserControl_9" class="lnkNotebooks" onclick="selectCategory(this.text, 9);"><i class="fas fa-feather"></i><span>Aromatizantes</span></a></li>
+                                                        <li><a id="MainContent_SearchUserControl_11" class="lnkTablets eReaders" onclick="selectCategory(this.text, 11);"><i class="fas fa-home"></i><span>Adornos para el hogar</span></a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a id="MainContent_SearchUserControl_7" class="lnkCámaras" onclick="selectCategory(this.text, 7);"><i class="fas fa-key"></i><span>Llaveros</span></a></li>
+                                                        <li><a id="MainContent_SearchUserControl_12" class="lnkVideojuegos" onclick="selectCategory(this.text, 12);"><i class="fas fa-briefcase"></i><span>Oficina</span></a></li>
+                                                    </ul>
+                                                </div>
+                                                <span id="MainContent_SearchUserControl_Span1" class="input-group-btn">
+                                                    <div>
+                                                        <a id="MainContent_SearchUserControl_BtnSearch" class="btn btn-primary SearchUserControl_BtnSearch" href=""><i class="fas fa-search"></i></a>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+            </ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+            
+                <footer id="footer" class="panel-footer navbar-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <h3>Información Útil</h3>
+                                <ul class="links">
+                                    <li><a href="">Preguntas frecuentes</a></li>
+                                    <li><a href="">Garantía</a></li>
+                                    <li><a href="">Quienes somos</a></li>
+                                    <li><a href="">Comprar</a></li>
+                                    <li><a href="">Envíos</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 col-md-4">
+                                <div class="row">
+                                    <div id="updSub">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 Footer-Suscribete" id="Suscribete">
+                                            <h3>Suscribete</h3>
+                                            <input name="ctl00$txtNewsletter" type="text" maxlength="50" id="txtNewsletter" class="form-control input-Email-suscription" placeholder="email" title="Escribe tu email para suscribirte al NewsLetter"></input>
+                                            <input type="submit" name="ctl00$btnNewsletter" value="ok" onclick=")" id="btnNewsletter" class="btn btn-Email-suscription"></input>
+                                            <div class="col-xs-3 col-sm-3 col-md-3 susbscriptionMessages">
+                                                <span id="rfvNewsLetter" class="rfvNewsLetter" style="visibility:hidden;">Ingrese un mail</span>
+                                                <span id="regexEmailValid" class="rfvNewsLetter" style="visibility:hidden;">Formato incorrecto</span>
+                                            </div>
+                                            <div id="MessageNewsletter" class="MessageNewsletter bgcolor0 " style="display: none;">
+                                            </div>
+                                        </div>
+                                        <div id="UpdateProgressClasificados" style="display:none;" role="status" aria-hidden="true">
+
+                                            <div class="loadingSuscription">
+                                                <img id="imgSend" src="resources/files/ajax-loader.gif"></img>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 Footer-Seguinos" id="Seguinos">
+                                        <h3>Seguinos!</h3>
+                                        <ul class="Social2">
+                                            <li class="Social"><a href="https://www.facebook.com/chucheriasmtvo">
+                                                    <img src="resources/files/Facebook.png"></img></a></li>
+                                        </ul>
+                                        <div class="fb-facepile" data-href="https://www.facebook.com/chucheriasmtvo" data-max-rows="1" data-colorscheme="dark" data-size="medium" data-show-count="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
