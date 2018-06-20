@@ -46,5 +46,8 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:derby://localhost:1527/chucherias</property>
     <property name="hibernate.connection.username">chuche</property>
     <property name="hibernate.connection.password">chuche</property>
+    <mapping resource="../java/com/chucherias/mapeos/producto.hbm.xml"/>
+    <mapping/>
+    <mapping resource="../java/com/chucherias/mapeos/imgproducto.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
