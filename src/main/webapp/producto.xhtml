@@ -11,10 +11,13 @@
     <ui:define name="content">
 
             Pendrive Camara 8 GB
-            <p:galleria value="#{imgaenesProducto.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-                <p:graphicImage name="resources/img/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+            
+            <p:galleria value="#{imagenesProducto.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+                <p:graphicImage name="img/#{image}" alt="Image Description for #{image}" title="#{image}"/>
             </p:galleria>
-
+            
+            <!--
+            <p:graphicImage name="img/img1.jpg" alt="Image Description for img1.jpg" title="img1.jpg"/>-->
     </ui:define>
 
     <ui:insert name="bottom">

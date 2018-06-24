@@ -10,14 +10,20 @@ public class producto implements Serializable{
     private String nombre;
     private String descripcion;
     private double precio;
-    
-    
-    public producto(String codigo, String nombre, String descripcion) {
+    private String estado;
+    private String tipo;
+
+
+    public producto(String codigo, String nombre, String descripcion, double precio, String estado, String tipo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.precio = precio;
+        this.estado = estado;
+        this.tipo = tipo;
     }
-
+    
+    
     /**
      * @return the id
      */
@@ -86,6 +92,34 @@ public class producto implements Serializable{
      */
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    /**
+     * @return the estado
+     */
+    public String getEstado() {
+        return estado;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @return the tipo
+     */
+    public String getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
     
     

@@ -2867,7 +2867,7 @@ background:#00abc5
     position: relative;
 }
 .panel-body { padding: 0 }
-.container { position: relative; padding: 0;}
+.container {padding: 0;}
 .no-margin, no-margin-desk { margin: 0 }
 .no-padding, no-padding-desk { padding: 0 }
 .margin-15n { margin-left: -15px!important; margin-right: -15px!important; width: calc(100%+30px)!important; width: expression(100%+30px)!important }

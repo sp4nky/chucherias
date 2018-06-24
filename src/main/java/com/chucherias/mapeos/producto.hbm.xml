@@ -14,5 +14,7 @@
         
         <property name="descripcion" type="string" column="descripcion"/>
         <property name="precio" type="double" column="precio"/>
+        <property name="estado" type="string" column="estado"/>
+        <property name="tipo" type="string" column="tipo"/>
     </class>
 </hibernate-mapping>
