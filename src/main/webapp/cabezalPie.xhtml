@@ -16,7 +16,13 @@
         <h:outputScript name="files/script2.js" />
         <h:outputScript name="files/animaciones.js" />
         <h:outputStylesheet name="css/cssLayout.css" />
-        
+        <script type="text/javascript">
+            function $_GET(q,s) { 
+                s = s ? s : window.location.search; 
+                var re = new RegExp('&'+q+'(?:=([^&]*))?(?=&|$)','i'); 
+                return (s=s.replace(/^?/,'&').match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined; 
+            } 
+        </script>
         <title>Chucherias</title>
 
     </h:head>

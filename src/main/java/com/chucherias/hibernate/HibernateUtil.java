@@ -1,4 +1,4 @@
-package com.chuherias.hibernate;
+package com.chucherias.hibernate;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory; 

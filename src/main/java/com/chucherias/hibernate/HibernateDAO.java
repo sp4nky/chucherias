@@ -1,4 +1,4 @@
-package com.chuherias.hibernate;
+package com.chucherias.hibernate;
 
 import com.chucherias.entidades.producto;
 import java.util.List;
@@ -6,7 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class productoDAO {
+public class HibernateDAO {
 
     private Session sesion;
     private Transaction tx;
@@ -21,12 +21,12 @@ public class productoDAO {
         throw new HibernateException("Ocurrió un error en la capa de acceso a datos", he);
     }
 
-    public long add(producto prod) throws HibernateException {
+    public long add(Object o) throws HibernateException {
         long id = 0;
 
         try {
             iniciaOperacion();
-            id = (Long) sesion.save(prod);
+            id = (Long) sesion.save(o);
             tx.commit();
         } catch (HibernateException he) {
             manejaExcepcion(he);
@@ -38,10 +38,10 @@ public class productoDAO {
         return id;
     }
 
-    public void update(producto prod) throws HibernateException {
+    public void update(Object o) throws HibernateException {
         try {
             iniciaOperacion();
-            sesion.update(prod);
+            sesion.update(o);
             tx.commit();
         } catch (HibernateException he) {
             manejaExcepcion(he);
@@ -51,10 +51,10 @@ public class productoDAO {
         }
     }
 
-    public void del(producto prod) throws HibernateException {
+    public void del(Object o) throws HibernateException {
         try {
             iniciaOperacion();
-            sesion.delete(prod);
+            sesion.delete(o);
             tx.commit();
         } catch (HibernateException he) {
             manejaExcepcion(he);
@@ -64,28 +64,41 @@ public class productoDAO {
         }
     }
 
-    public producto find(int idproducto) throws HibernateException {
-        producto prod = null;
+    public Object find(int id) throws HibernateException {
+        Object o = null;
         try {
             iniciaOperacion();
-            prod = (producto) sesion.get(producto.class, idproducto);
+            o = (producto) sesion.get(producto.class, id);
         } finally {
             sesion.close();
         }
 
-        return prod;
+        return o;
     }
 
-    public List<producto> getList() throws HibernateException {
-        List<producto> listaproductos = null;
+    public List<Object> getList(String nombreTabla) throws HibernateException {
+        List<Object> lista = null;
 
         try {
             iniciaOperacion();
-            listaproductos = sesion.createQuery("from producto").list();
+            lista = sesion.createQuery("from " + nombreTabla).list();
         } finally {
             sesion.close();
         }
 
-        return listaproductos;
+        return lista;
+    }
+    
+    public List<Object> getListWhere(String query) throws HibernateException {
+        List<Object> lista = null;
+
+        try {
+            iniciaOperacion();
+            lista = sesion.createQuery(query).list();
+        } finally {
+            sesion.close();
+        }
+
+        return lista;
     }
 }
