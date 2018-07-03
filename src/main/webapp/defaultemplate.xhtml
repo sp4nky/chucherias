@@ -17,13 +17,7 @@
         <h:outputScript name="files/script2.js" />
         <h:outputScript name="files/animaciones.js" />
         <h:outputStylesheet name="css/cssLayout.css" />
-        <script>
-            $(document).ready(function () {
-                $("#10").click(function () {
-                    localStorage.setItem("idproducto", 1);
-                })
-            })
-        </script>
+
         <title>Chucherias</title>
 
     </h:head>
@@ -81,7 +75,9 @@
         </div>
         <div>
             <div id="left">
-
+                <h:form>
+                    <h:commandLink action="#{productoController.prepareView(1)}"
+                </h:form>
                 <ui:insert name="left">
                     <div class="container panel-body">
                         <div class="row">
@@ -93,7 +89,7 @@
                                             <li class="color0">
                                                 <div>
 
-
+                                                    
                                                     <a id="10" href="producto.xhtml" class="ZTmenu_drop">
                                                         <div class="borderColor bgcolor0">
                                                         </div>
