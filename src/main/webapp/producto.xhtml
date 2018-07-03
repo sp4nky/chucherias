@@ -4,13 +4,7 @@
                 template="./cabezalPie.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui">
-    <script>
-        $(document).ready(function(){
-            "#{imagenesProducto.setIdProducto('$_GET(idproducto)')}";
-            
-                    
-        })
-    </script>
+
     <ui:insert name="top">
     </ui:insert>
 
@@ -18,8 +12,8 @@
 
             Pendrive Camara 8 GB
             
-            <p:galleria value="#{imagenesProducto.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-                <p:graphicImage name="#{image}" alt="Image Description for #{image}" title="#{image}"/>
+            <p:galleria value="#{productoController.listImg}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+                <p:graphicImage name="#{image.getUrl()}" alt="Image Description for #{image.getUrl()}" title="#{image.getUrl()}"/>
             </p:galleria>
             
             <!--
