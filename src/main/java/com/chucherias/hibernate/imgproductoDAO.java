@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
  * @author d225364
  */
 public class imgproductoDAO {
-    
+
     private Session sesion;
     private Transaction tx;
 
@@ -41,7 +41,7 @@ public class imgproductoDAO {
             manejaExcepcion(he);
             throw he;
         } finally {
-            sesion.close();
+            cerrarSession(sesion);
         }
 
         return id;
@@ -56,7 +56,7 @@ public class imgproductoDAO {
             manejaExcepcion(he);
             throw he;
         } finally {
-            sesion.close();
+            cerrarSession(sesion);
         }
     }
 
@@ -69,7 +69,7 @@ public class imgproductoDAO {
             manejaExcepcion(he);
             throw he;
         } finally {
-            sesion.close();
+            cerrarSession(sesion);
         }
     }
 
@@ -79,7 +79,7 @@ public class imgproductoDAO {
             iniciaOperacion();
             o = (imgproductos) sesion.get(imgproductos.class, id);
         } finally {
-            sesion.close();
+            cerrarSession(sesion);
         }
 
         return o;
@@ -92,23 +92,29 @@ public class imgproductoDAO {
             iniciaOperacion();
             lista = sesion.createQuery("from imgproducto").list();
         } finally {
-            sesion.close();
+            cerrarSession(sesion);
         }
 
         return lista;
     }
-    
+
     public List<imgproductos> getImgProducto(int id) throws HibernateException {
         List<imgproductos> lista = null;
 
         try {
             iniciaOperacion();
-            lista = sesion.createQuery("from imgproducto where imgproducto.idproducto="+id).list();
+            lista = sesion.createQuery("from imgproducto where imgproducto.idproducto=" + id).list();
         } finally {
-            sesion.close();
+            cerrarSession(sesion);
         }
 
         return lista;
     }
-    
+
+    private void cerrarSession(Session session) {
+        if (session != null) {
+            session.close();
+        }
+    }
+
 }

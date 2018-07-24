@@ -19,16 +19,18 @@ public class productoController {
     private List<producto> listProd;
     private List<imgproductos> listImg;
     private productoDAO hprod;
+    private imgproductoDAO h;
     
     @PostConstruct
     public void init() {
-        imgproductoDAO h= new imgproductoDAO();
+        h= new imgproductoDAO();
         
-        listImg= h.getImgProducto(selected.getId());
+        
     }
     
     public String prepareView(int id){
-        selected = hprod.find(id);
+        //selected = hprod.find(id);
+        listImg= h.getImgProducto(id);
         return "producto";
     }
     
