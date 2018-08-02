@@ -1,6 +1,6 @@
 package com.chucherias.hibernate;
 
-import com.chucherias.entidades.producto;
+import com.chucherias.entidades.Producto;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -68,7 +68,7 @@ public class HibernateDAO {
         Object o = null;
         try {
             iniciaOperacion();
-            o = (producto) sesion.get(producto.class, id);
+            o = (Producto) sesion.get(Producto.class, id);
         } finally {
             sesion.close();
         }
