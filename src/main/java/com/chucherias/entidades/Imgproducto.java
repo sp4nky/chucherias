@@ -1,10 +1,25 @@
 
 package com.chucherias.entidades;
 
-public class Imgproducto {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "imgproducto", schema = "CHUCHE")
+public class Imgproducto implements Serializable {
+    
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private int idproducto;
     private String url;
+    
+    public Imgproducto(){
+        
+    }
 
     public Imgproducto(int idproducto, String url) {
         this.idproducto = idproducto;
