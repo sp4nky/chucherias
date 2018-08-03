@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.chucherias.entidades.producto" table="producto">
+        <id name="id" type="int" unsaved-value="null">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="codigo" type="string" column="codigo" />
+        <property name="nombre" type="string" column="nombre"/>
+        
+        <property name="descripcion" type="string" column="descripcion"/>
+        <property name="precio" type="double" column="precio"/>
+        <property name="estado" type="string" column="estado"/>
+        <property name="tipo" type="string" column="tipo"/>
+    </class>
+</hibernate-mapping>

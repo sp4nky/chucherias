@@ -46,8 +46,8 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:derby://localhost:1527/chucherias</property>
     <property name="hibernate.connection.username">chuche</property>
     <property name="hibernate.connection.password">chuche</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <mapping class="" file="" jar="" package="" resource="com/chucherias/mapeos/producto.hbm.xml"/>
-    <mapping resource="com/chucherias/mapeos/imgproducto.hbm.xml"/>
+    <mapping resource="../java/com/chucherias/mapeos/producto.hbm.xml"/>
+    <mapping/>
+    <mapping resource="../java/com/chucherias/mapeos/imgproducto.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

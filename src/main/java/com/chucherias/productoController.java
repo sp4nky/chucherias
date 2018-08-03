@@ -1,10 +1,10 @@
 
 package com.chucherias;
 
-import com.chucherias.entidades.Imgproducto;
+import com.chucherias.entidades.imgproductos;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import com.chucherias.entidades.Producto;
+import com.chucherias.entidades.producto;
 import com.chucherias.hibernate.imgproductoDAO;
 import com.chucherias.hibernate.productoDAO;
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import javax.annotation.PostConstruct;
 @SessionScoped
 public class productoController {
     
-    private Producto selected;
-    private List<Producto> listProd;
-    private List<Imgproducto> listImg;
+    private producto selected;
+    private List<producto> listProd;
+    private List<imgproductos> listImg;
     private productoDAO hprod;
     private imgproductoDAO h;
     
@@ -34,7 +34,7 @@ public class productoController {
         return "producto";
     }
     
-    public List<Producto> getlistProductos() {
+    public List<producto> getlistProductos() {
         if (listProd == null) {
             listProd = hprod.getList();
         }

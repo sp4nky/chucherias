@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import com.chucherias.entidades.Imgproducto;
-import com.chucherias.entidades.Producto;
+import com.chucherias.entidades.imgproductos;
+import com.chucherias.entidades.producto;
 import com.chucherias.hibernate.imgproductoDAO;
  
 @ManagedBean
@@ -26,9 +26,9 @@ public class imagenesProducto {
     public void init() {
         imgproductoDAO h= new imgproductoDAO();
         
-        List<Imgproducto> listImg= h.getImgProducto(idProducto);
+        List<imgproductos> listImg= h.getImgProducto(idProducto);
         images = new ArrayList<String>();
-        for(Imgproducto img : listImg)
+        for(imgproductos img : listImg)
         {
             images.add(img.getUrl());
         }

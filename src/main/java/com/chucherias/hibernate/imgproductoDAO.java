@@ -5,7 +5,7 @@
  */
 package com.chucherias.hibernate;
 
-import com.chucherias.entidades.Imgproducto;
+import com.chucherias.entidades.imgproductos;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -73,11 +73,11 @@ public class imgproductoDAO {
         }
     }
 
-    public Imgproducto find(int id) throws HibernateException {
-        Imgproducto o = null;
+    public imgproductos find(int id) throws HibernateException {
+        imgproductos o = null;
         try {
             iniciaOperacion();
-            o = (Imgproducto) sesion.get(Imgproducto.class, id);
+            o = (imgproductos) sesion.get(imgproductos.class, id);
         } finally {
             cerrarSession(sesion);
         }
@@ -85,8 +85,8 @@ public class imgproductoDAO {
         return o;
     }
 
-    public List<Imgproducto> getList() throws HibernateException {
-        List<Imgproducto> lista = null;
+    public List<imgproductos> getList() throws HibernateException {
+        List<imgproductos> lista = null;
 
         try {
             iniciaOperacion();
@@ -98,8 +98,8 @@ public class imgproductoDAO {
         return lista;
     }
 
-    public List<Imgproducto> getImgProducto(int id) throws HibernateException {
-        List<Imgproducto> lista = null;
+    public List<imgproductos> getImgProducto(int id) throws HibernateException {
+        List<imgproductos> lista = null;
 
         try {
             iniciaOperacion();
