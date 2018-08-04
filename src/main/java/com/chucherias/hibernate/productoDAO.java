@@ -1,6 +1,6 @@
 package com.chucherias.hibernate;
 
-import com.chucherias.entidades.producto;
+import com.chucherias.entidades.Producto;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -21,7 +21,7 @@ public class productoDAO {
         throw new HibernateException("Ocurrió un error en la capa de acceso a datos", he);
     }
 
-    public long add(producto prod) throws HibernateException {
+    public long add(Producto prod) throws HibernateException {
         long id = 0;
 
         try {
@@ -38,7 +38,7 @@ public class productoDAO {
         return id;
     }
 
-    public void update(producto prod) throws HibernateException {
+    public void update(Producto prod) throws HibernateException {
         try {
             iniciaOperacion();
             sesion.update(prod);
@@ -51,7 +51,7 @@ public class productoDAO {
         }
     }
 
-    public void del(producto prod) throws HibernateException {
+    public void del(Producto prod) throws HibernateException {
         try {
             iniciaOperacion();
             sesion.delete(prod);
@@ -64,11 +64,11 @@ public class productoDAO {
         }
     }
 
-    public producto find(int idproducto) throws HibernateException {
-        producto prod = null;
+    public Producto find(int idProducto) throws HibernateException {
+        Producto prod = null;
         try {
             iniciaOperacion();
-            prod = (producto) sesion.get(producto.class, idproducto);
+            prod = (Producto) sesion.get(Producto.class, idProducto);
         } finally {
             sesion.close();
         }
@@ -76,16 +76,16 @@ public class productoDAO {
         return prod;
     }
 
-    public List<producto> getList() throws HibernateException {
-        List<producto> listaproductos = null;
+    public List<Producto> getList() throws HibernateException {
+        List<Producto> listaProductos = null;
 
         try {
             iniciaOperacion();
-            listaproductos = sesion.createQuery("from producto").list();
+            listaProductos = sesion.createQuery("from Producto").list();
         } finally {
             sesion.close();
         }
 
-        return listaproductos;
+        return listaProductos;
     }
 }
