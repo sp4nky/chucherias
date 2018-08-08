@@ -90,7 +90,7 @@ public class imgproductoDAO {
 
         try {
             iniciaOperacion();
-            lista = sesion.createQuery("from imgproducto").list();
+            lista = sesion.createQuery("from Imgproducto").list();
         } finally {
             cerrarSession(sesion);
         }
@@ -103,7 +103,7 @@ public class imgproductoDAO {
 
         try {
             iniciaOperacion();
-            lista = sesion.createQuery("from imgproducto where imgproducto.idproducto=" + id).list();
+            lista = sesion.createQuery("from Imgproducto where idproducto=" + id).list();
         } finally {
             cerrarSession(sesion);
         }

@@ -35,10 +35,24 @@ public class productoController {
     }
     
     public List<Producto> getlistProductos() {
-        if (listProd == null) {
+        if (getListProd() == null) {
             listProd = hprod.getList();
         }
+        return getListProd();
+    }
+
+    /**
+     * @return the listProd
+     */
+    public List<Producto> getListProd() {
         return listProd;
+    }
+
+    /**
+     * @return the listImg
+     */
+    public List<Imgproducto> getListImg() {
+        return listImg;
     }
     
 }
