@@ -76,8 +76,11 @@
         <div>
             <div id="left">
                 <h:form>
-                    <h:commandLink action="#{productoController.prepareView(1)}">Producto Ejemplo</h:commandLink>
+                    <h:outputText value="Producto" />
+                    <h:inputText id="idProducto" value="#{productoController.idProducto}"></h:inputText>
+                    <h:commandLink action="#{productoController.prepareView}">Producto Ejemplo</h:commandLink>
                 </h:form>
+
                 <ui:insert name="left">
                     <div class="container panel-body">
                         <div class="row">

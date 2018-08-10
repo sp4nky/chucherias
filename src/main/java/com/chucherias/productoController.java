@@ -10,6 +10,8 @@ import com.chucherias.hibernate.productoDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean
 @SessionScoped
@@ -20,6 +22,7 @@ public class productoController {
     private List<Imgproducto> listImg;
     private productoDAO hprod;
     private imgproductoDAO h;
+    private int idProducto;
     
     @PostConstruct
     public void init() {
@@ -28,9 +31,12 @@ public class productoController {
         
     }
     
-    public String prepareView(int id){
-        //selected = hprod.find(id);
-        listImg= h.getImgProducto(id);
+    public String prepareView(){
+        //selected = hprod.find(idProducto);
+        
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			session.setAttribute("producto", getIdProducto());
+        
         return "producto";
     }
     
@@ -52,7 +58,22 @@ public class productoController {
      * @return the listImg
      */
     public List<Imgproducto> getListImg() {
+        listImg= h.getImgProducto(idProducto);
         return listImg;
+    }
+
+    /**
+     * @return the idProducto
+     */
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    /**
+     * @param idProducto the idProducto to set
+     */
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
     
 }
