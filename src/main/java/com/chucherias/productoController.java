@@ -47,12 +47,6 @@ public class productoController {
         return getListProd();
     }
 
-    /**
-     * @return the listProd
-     */
-    public List<Producto> getListProd() {
-        return listProd;
-    }
 
     /**
      * @return the listImg
